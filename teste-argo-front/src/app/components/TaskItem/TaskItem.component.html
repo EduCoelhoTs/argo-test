@@ -1,0 +1,10 @@
+<form [formGroup]="form" class="form-bg flex items-center justify-between">
+    <section class="flex items-end">
+        <mat-checkbox (change)="updateStatus()" formControlName="status"></mat-checkbox>
+        <p class="flex items-center" [ngClass]="form?.get('status')?.value ? 'line-through' : ''">{{ task.title }}</p>
+    </section>
+
+    <section>
+        <mat-icon class="cursor-pointer" (click)="deleteTask()">delete</mat-icon>
+    </section>
+</form>

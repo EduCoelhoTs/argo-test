@@ -1,0 +1,7 @@
+<main class="w-full h-full grid grid-cols-4 gap-5 p-20">
+   @if (tasksList(); as tasksList) {
+      @for (task of tasksList; track task.title; let idx = $index) {
+         <task-list [index]="idx" [tasksList]="task"></task-list>
+      }
+   }
+</main>

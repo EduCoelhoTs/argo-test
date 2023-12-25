@@ -1,0 +1,30 @@
+<section class="elemento-com-fundo-svg relative">
+ @if (auth()) {
+  <section class="absolute w-full px-10 py-5">
+    <nav class="w-full flex justify-between items-center ">
+      <span class="text-white font-bold text-xl">To-Do List</span>
+      <ul class="flex flex-row justify-center items-center gap-5">
+        <li>
+          <a class="flex items-center text-white font-bold text-md gap-2" [routerLink]="['/']">
+            <mat-icon class="bg-white rounded-full text-black border-black">home</mat-icon>
+            Home
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/create']" class="flex items-center text-white font-bold text-md gap-2">
+            <mat-icon class="bg-white rounded-full text-black border-black">add</mat-icon>
+            Criar Lista
+          </a>
+        </li>
+        <li>
+        <li class="flex items-center text-white font-bold text-md gap-2 cursor-pointer" (click)="logout()">
+          <mat-icon class="bg-white rounded-full text-black border-black">logout</mat-icon>
+          Sair
+        </li>
+      </ul>
+    </nav>
+  </section>
+ }
+ 
+  <ng-content> </ng-content>
+</section>

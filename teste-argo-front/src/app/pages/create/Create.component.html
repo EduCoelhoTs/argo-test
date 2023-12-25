@@ -1,0 +1,31 @@
+<main class="w-full h-full flex gap-5 p-20 justify-center">
+    <form [formGroup]="form" class="bg-white rounded-lg z-40 p-10 flex flex-col gap-5 w-1/3">
+        <h2>Cadastre uma nova lista de tarefas</h2>
+        <mat-form-field class="example-full-width">
+            <mat-label>Título</mat-label>
+            <input type="text" matInput formControlName="title">
+            @if (form.hasError('required')) {
+            <mat-error>Título é <strong>obrigatório</strong></mat-error>
+            }
+        </mat-form-field>
+     
+       @if(!file) {
+        <label for="inputFile"
+            class="bg-gray-600 px-10 py-3 rounded-lg text-white font-bold flex justify-center cursor-pointer hover:bg-gray-800">Anexar
+            arquivo</label>
+        <input type="file" id="inputFile" class="hidden" (change)="fileUpload($event)">
+       } @else {
+            <section class="flex flex-col">
+               <span>Arquivo</span>
+               <span class="flex gap-3">
+                    <div class="text-gray-700 underline">{{ file?.name }}</div>
+                    <div (click)="clearFile()" class="text-gray-700 cursor-pointer">x</div>
+               </span>
+            </section>
+       }
+
+        <button (click)="onSubmit()" mat-raised-button color="primary" type="submit">
+            Cadastrar
+        </button>
+    </form>
+</main>

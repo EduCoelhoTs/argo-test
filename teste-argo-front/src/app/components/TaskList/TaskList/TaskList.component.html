@@ -1,0 +1,17 @@
+@if(tasksList) {
+    <mat-card class="px-5 py-5 z-50 w-80 gap-5 flex flex-col justify-center" [ngClass]="handleColorsClass" >
+      <section class="flex items-center justify-between">
+        <span class="font-bold text-xl">{{tasksList.title}}</span>
+        <span class="flex gap-3" >
+            <mat-icon (click)="deleteTaskList(tasksList.id)" class="cursor-pointer">delete</mat-icon>
+            <mat-icon (click)="openCreateTaskModal(tasksList.id)" class="bg-black rounded-full text-white cursor-pointer">add</mat-icon>
+        </span>
+      </section>
+
+       <section>
+        @for(task of tasksList.tasks; track task.id) {
+            <task-item [task]="task"></task-item>
+        }
+       </section>
+    </mat-card>
+}
